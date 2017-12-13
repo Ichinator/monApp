@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf8">
+	<title>Formulaire inscription</title>
+
+	<!-- Boostrap CSS-->
+	<link rel="stylesheet" type="text/css" href="../bootstrap-3.3.7/dist/css/bootstrap.css">
+
+	<!--Jquery-->
+	<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+
+	<!--Bootstrap JS-->
+	<script type="text/javascript" src="../bootstrap-3.3.7/dist/js/bootstrap.js"></script>
+
+	<!--Firebase init-->
+	<script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+	<script src="../js/FirebaseInit.js"></script>
+
+	<script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
+    <script type="text/javascript">
+      // FirebaseUI config.
+      var uiConfig = {
+        signInSuccessUrl: 'success.html',
+        signInOptions: [
+          // Leave the lines as is for the providers you want to offer your users.
+          firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+          firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+          firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+          firebase.auth.GithubAuthProvider.PROVIDER_ID,
+          firebase.auth.EmailAuthProvider.PROVIDER_ID,
+          /*firebase.auth.PhoneAuthProvider.PROVIDER_ID*/
+        ],
+        // Terms of service url.
+        tosUrl: '<your-tos-url>'
+      };
+
+      // Initialize the FirebaseUI Widget using Firebase.
+      var ui = new firebaseui.auth.AuthUI(firebase.auth());
+      // The start method will wait until the DOM is loaded.
+      ui.start('#firebaseui-auth-container', uiConfig);
+    </script>
+</head>
+<body>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="../index.html">Petit ours brun</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a href="../index.html">Accueil</a></li>
+        <li><a href="YoutubePresent.html">YouTube</a></li>
+        <li class="active"><a href="DailymotionPresent.html">Dailymotion</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="SignUpLoginForm.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div id="firebaseui-auth-container"></div>
+</body>
+</html>
